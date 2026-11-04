@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d2ncrey2gcpq4"]
+
+[ext_resource type="Script" uid="uid://d4knxo0sukv8t" path="res://player/player.gd" id="1_oul6g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke0wg"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_ke0wg"]
+
+[node name="Player" type="CharacterBody3D" unique_id=173280360]
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=265984041]
+shape = SubResource("CapsuleShape3D_ke0wg")
+
+[node name="Head" type="Node3D" parent="." unique_id=228577614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=656222587]
+
+[node name="TerrainCannon" type="Node3D" parent="Head/Camera3D" unique_id=584431973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.4, -0.9)
+
+[node name="CannonMesh" type="MeshInstance3D" parent="Head/Camera3D/TerrainCannon" unique_id=1357380664]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = SubResource("BoxMesh_ke0wg")
+
+[node name="TerrainRay" type="RayCast3D" parent="Head/Camera3D" unique_id=369739993]
+target_position = Vector3(0, 0, -10)

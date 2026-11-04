@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b6dtfdgwlrv1x"]
+
+[ext_resource type="PackedScene" uid="uid://d2ncrey2gcpq4" path="res://player/player.tscn" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://cbcfxerkj6s4v" path="res://terrain/terrain.gd" id="2_rwgxs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dr77u"]
+
+[sub_resource type="Sky" id="Sky_nnsk1"]
+sky_material = SubResource("ProceduralSkyMaterial_dr77u")
+
+[sub_resource type="Environment" id="Environment_ke0wg"]
+background_mode = 2
+sky = SubResource("Sky_nnsk1")
+
+[node name="World" type="Node3D" unique_id=2146821810]
+
+[node name="Player" parent="." unique_id=173280360 instance=ExtResource("1_nnsk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 14, 8)
+up_direction = Vector3(1, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1715740223]
+transform = Transform3D(0.8660254, -0.3535534, 0.3535534, 0, 0.7071068, 0.7071068, -0.5, -0.61237246, 0.61237246, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=776678398]
+environment = SubResource("Environment_ke0wg")
+
+[node name="Terrain" type="Node3D" parent="." unique_id=1156979872]
+script = ExtResource("2_rwgxs")
+voxel_size = 0.75
+terrain_height = 3.0
