@@ -21,10 +21,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
 
 [node name="TerrainCannon" type="Node3D" parent="Head/Camera3D" unique_id=584431973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.4, -0.9)
+visible = false
 
 [node name="CannonMesh" type="MeshInstance3D" parent="Head/Camera3D/TerrainCannon" unique_id=1357380664]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.7, 0, 0, 0)
 mesh = SubResource("BoxMesh_ke0wg")
 
 [node name="TerrainRay" type="RayCast3D" parent="Head/Camera3D" unique_id=369739993]
+visible = false
 target_position = Vector3(0, 0, -10)
